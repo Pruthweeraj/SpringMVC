@@ -28,4 +28,11 @@
 	</bean>
 
 
+  <mvc:interceptors>
+  <bean class="businessLogic.DayOfWeakBaseAccessInterceptor" />
+  </mvc:interceptors>
+
+
+
+
 </beans>

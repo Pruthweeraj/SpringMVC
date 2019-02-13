@@ -1,7 +1,5 @@
 package controllers;
 
-
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -16,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import beans.Student;
 
+import businessLogic.StudentNameEditor;
+
 @Controller
 public class RegistrationController {
 
@@ -24,17 +24,13 @@ public class RegistrationController {
 		model.addAttribute("headMessage", "PR COLLEGE OF ENGINEERING,ODISHA");
 
 	}
-	
+
 	@InitBinder
-	public void initBinder(WebDataBinder webDataBinder){
-		
+	public void initBinder(WebDataBinder webDataBinder) {
+
 		webDataBinder.registerCustomEditor(String.class, "studentName", new StudentNameEditor());
-		
+
 	}
-	
-
-
-	
 
 	@RequestMapping(value = "/reg", method = RequestMethod.GET)
 	public ModelAndView register() {
@@ -45,15 +41,14 @@ public class RegistrationController {
 
 	// using @ModelAttribute
 	@RequestMapping(value = "/submitRegistationForm", method = RequestMethod.POST)
-	public ModelAndView submit(@Valid @ModelAttribute("student1") Student student , BindingResult bindingResult) {
+	public ModelAndView submit(@Valid @ModelAttribute("student1") Student student, BindingResult bindingResult) {
 
-		if(bindingResult.hasErrors()){
-			
+		if (bindingResult.hasErrors()) {
+
 			ModelAndView modelAndView = new ModelAndView("Registration");
 			return modelAndView;
 		}
-		
-		
+
 		ModelAndView modelAndView = new ModelAndView("success");
 
 		return modelAndView;
