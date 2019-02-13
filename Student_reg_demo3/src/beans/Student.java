@@ -3,13 +3,27 @@ package beans;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class Student {
 
 	String studentName;
+
+	// @Size(min=2 , max=10 , message="Please, enter the RollNumber in valid
+	// range 2 and 10)")
+	// @Size(min=2 , max=10 , message="Please, enter the RollNumber in valid
+	// range {min} and {max} .")
+	@Size(min = 2, max = 10)
 	String studentRollNumber;
+
 	long studentMobile;
+
+	@Past
 	Date studentDOB;
+
 	List<String> studentSkills;
+
 	Address address;
 
 	public Address getAddress() {

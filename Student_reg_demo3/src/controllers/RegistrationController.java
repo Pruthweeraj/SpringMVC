@@ -1,5 +1,9 @@
 package controllers;
 
+
+
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +32,8 @@ public class RegistrationController {
 		
 	}
 	
+
+
 	
 
 	@RequestMapping(value = "/reg", method = RequestMethod.GET)
@@ -39,7 +45,7 @@ public class RegistrationController {
 
 	// using @ModelAttribute
 	@RequestMapping(value = "/submitRegistationForm", method = RequestMethod.POST)
-	public ModelAndView submit(@ModelAttribute("student1") Student student , BindingResult bindingResult) {
+	public ModelAndView submit(@Valid @ModelAttribute("student1") Student student , BindingResult bindingResult) {
 
 		if(bindingResult.hasErrors()){
 			
