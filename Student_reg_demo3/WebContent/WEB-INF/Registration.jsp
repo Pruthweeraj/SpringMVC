@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 	
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -14,7 +14,7 @@
 <form:errors path="student1.*" />
 
 	<form action="/Student_reg_demo3/submitRegistationForm" method="post">
-		<label>Student's Name:</label> <input type="text" name="studentName" /><br />
+		<label><spring:message code="label.studentName" /></label> <input type="text" name="studentName" /><br />
 		<br /> <label>Student's RollNumber:</label> <input type="text"
 			name="studentRollNumber" /><br />
 		<br /> <label>Student's Mobile:</label> <input type="text"
